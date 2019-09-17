@@ -1,0 +1,17 @@
+<div>
+	<label>Enter your item:</label>
+  <div>
+    <input type="text" class="list-input" #lsinput>
+    <button class="btn active" (click)="addtodo(lsinput.value); lsinput.value='' ">Save</button>
+  </div>
+  <span id="error"></span>
+</div>
+<div id="output">
+  <h5>Entered Item(s) are:</h5>
+  <ol id="list-output">
+    <li *ngFor="let todo of todos">
+      <input type="checkbox">
+      <b>{{ todo.name }}</b>
+    </li>
+  </ol>
+</div>
