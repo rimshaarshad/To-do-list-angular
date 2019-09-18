@@ -9,9 +9,19 @@
 <div id="output">
   <h5>Entered Item(s) are:</h5>
   <ol id="list-output">
-    <li *ngFor="let todo of todos">
-      <input type="checkbox">
+    <li *ngFor="let todo of todos; let i=index;">
+      <input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)">
       <b>{{ todo.name }}</b>
+
+    </li>
+  </ol>
+</div>
+<div>
+  <h5>Filtered:</h5>
+  <ol>
+    <li *ngFor="let todo of todos | isDone">
+      <input type="checkbox" checked>
+      {{ todo.name }}
     </li>
   </ol>
 </div>

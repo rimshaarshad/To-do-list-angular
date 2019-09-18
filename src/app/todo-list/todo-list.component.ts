@@ -7,7 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
   count = 0;
+  selected = [];
+  marked = false;
+  theCheckbox = false;
   todos = [
+    {
+      id: 45,
+      name: "ali",
+      done: true
+    },
+    {
+      id: 45,
+      name: "tea",
+      done: true
+    },
+    {
+      id: 45,
+      name: "item2",
+      done: true
+    },
   ];
 
   addtodo(todoname) {
@@ -20,6 +38,10 @@ export class TodoListComponent implements OnInit {
     }
     this.todos.push(newtodo);
   }
+
+toggleVisibility(e){
+    this.marked= e.target.checked;
+}
 
   constructor() { }
 
