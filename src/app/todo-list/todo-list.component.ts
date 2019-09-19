@@ -43,6 +43,10 @@ toggleVisibility(e){
     this.marked= e.target.checked;
 }
 
+foo(){
+  this.foo();
+}
+
   constructor() { }
 
   ngOnInit() {
