@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnInit,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy,
+  SimpleChange
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent implements
+  OnChanges,
+  OnInit,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy {
+  data:string = "hi"
   count = 0;
   selected = [];
-  marked = false;
-  theCheckbox = false;
+  itemName = new FormControl('');
   todos = [
     {
       id: 45,
@@ -27,7 +47,6 @@ export class TodoListComponent implements OnInit {
       done: true
     },
   ];
-
   addtodo(todoname) {
     this.count++;
     var label = todoname;
@@ -39,17 +58,32 @@ export class TodoListComponent implements OnInit {
     this.todos.push(newtodo);
   }
 
-toggleVisibility(e){
-    this.marked= e.target.checked;
-}
-
-foo(){
-  this.foo();
-}
-
-  constructor() { }
-
+  constructor() {
+    console.log("this is constructor" + this.data);
+  }
+  
+  OnChanges(changes: SimpleChange){
+    console.log("this is ngOnChanges");
+  }
   ngOnInit() {
-
+    console.log("this is ngOnInit");
+  }
+  ngDoCheck(){
+    console.log("this is ngDoCheck");
+  }
+  ngAfterContentInit(){
+    console.log("this is ngAfterContentInit");
+  }
+  ngAfterContentChecked(){
+    console.log("this is ngAfterContentChecked");
+  }
+  ngAfterViewInit(){
+    console.log("this is ngAfterViewInit");
+  }
+  ngAfterViewChecked(){
+    console.log("this is ngAfterviewChecked");
+  }
+  ngOnDestroy(){
+    console.log("this is ngOnDestroy");
   }
 }
